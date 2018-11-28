@@ -7,4 +7,13 @@ set -u
 
 # Creating user
 sudo adduser myuser --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
-echo "myuser:password" | sudo chpasswd
+echo "myuser:password" | chpasswd
+
+# Adding the new user to the sudo group
+usermod -aG sudo myuser
+
+# Allow firewall SSH connections
+ufw allow OpenSSH
+
+# Enable the firewall
+echo "y" | ufw enable

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euxo pipeline
+set -euxo pipefail
 
 # Initial server setup for Ubuntu 18.04
 

@@ -2,8 +2,6 @@
 
 set -euxo pipefail
 
-# Nginx install
-
 # Update APT
 apt-get update -y
 

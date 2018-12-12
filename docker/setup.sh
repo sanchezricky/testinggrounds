@@ -29,3 +29,5 @@ apt-get update
 # Docker install
 apt-get install -y docker-ce
 
+# Pull Ubuntu Image for docker
+sudo docker pull ubuntu

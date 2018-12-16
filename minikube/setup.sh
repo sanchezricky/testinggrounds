@@ -17,10 +17,19 @@ ufw allow OpenSSH
 # Enable the firewall
 echo "y" | ufw enable
 
+#Installing libvrt and QEMU for KVM
+sudo apt-get update -y
+sudo apt-get install libvirt-bin libvirt-dev qemu-utils qemu -y
+sudo /etc/init.d/libvirt-bin restart
+
 # Install kubectl
 sudo apt-get update && sudo apt-get install -y apt-transport-https
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
 sudo apt-get update
 sudo apt-get install -y kubectl
+
+# KVM Install
+sudo apt-get install qemu-kvm libvirt-bin virtinst bridge-utils cpu-checker -y
+
 

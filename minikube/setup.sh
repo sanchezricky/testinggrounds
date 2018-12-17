@@ -22,6 +22,10 @@ sudo apt-get update -y
 sudo apt-get install libvirt-bin libvirt-dev qemu-utils qemu -y
 sudo /etc/init.d/libvirt-bin restart
 
+# Adding user to libvirtd group
+sudo addgroup libvirtd
+sudo usermod -aG libvirtd
+
 # Install kubectl
 sudo apt-get update && sudo apt-get install -y apt-transport-https
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -

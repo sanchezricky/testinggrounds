@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
-set -o
+set -euo pipefail
 
 # Update apt and install Nginx
 sudo apt update

@@ -1,11 +1,10 @@
-#!/usr/bin/env bash
+!/usr/bin/env bash
 
-set -e
-set -o
+set -euo pipefail
 
 # Update apt and install Nginx
 sudo apt update
 sudo apt install nginx -y
 
-# Create index.html containg "a"
-echo "b" > /etc/html/www/index.html
+# Create index.html containing "a"
+echo "b" > /var/www/html/index.html

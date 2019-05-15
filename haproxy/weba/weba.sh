@@ -7,4 +7,4 @@ sudo apt update
 sudo apt install nginx -y
 
 # Create index.html containing "a"
-echo "a" | sudo tee > /var/www/html/index.html
+sudo sh -c "echo 'a' > /var/www/html.index.html"

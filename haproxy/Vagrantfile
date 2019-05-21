@@ -1,0 +1,65 @@
+Vagrant.configure(2) do |config|
+
+  if Vagrant.has_plugin?("vagrant-vbguest")
+    config.vbguest.auto_update = false
+  end
+
+
+  config.vm.define "weba" do |weba|
+
+    weba.vm.box = "ubuntu/bionic64"
+    weba.vm.network :private_network, ip: "192.168.56.20" 
+    weba.vm.provision :shell, path: "weba/weba.sh"
+    weba.vm.synced_folder "weba/", "/weba"
+ 
+    weba.vm.provider :virtualbox do |v|
+      v.name = "weba"
+    end
+
+  end
+
+
+  config.vm.define "webb" do |webb|
+
+    webb.vm.box = "ubuntu/bionic64"
+    webb.vm.network :private_network, ip: "192.168.56.10" 
+    webb.vm.provision :shell, path: "webb/webb.sh"
+    webb.vm.synced_folder "webb/", "/webb"
+
+    webb.vm.provider :virtualbox do |v|
+      v.name = "webb"
+    end
+
+  end
+
+
+  config.vm.define "hap" do |hap|
+
+    hap.vm.box = "ubuntu/bionic64"
+    hap.vm.network :private_network, ip: "192.168.56.30" 
+    hap.vm.provision :shell, path: "haproxy/hap.sh"
+    hap.vm.synced_folder "haproxy/", "/haproxy"
+
+    hap.vm.provider :virtualbox do |v|
+      v.name = "hap"
+    end
+
+  end
+
+
+  config.vm.define "nag" do |nag|
+
+    nag.vm.box = "ubuntu/bionic64"
+    nag.vm.network :private_network, ip: "192.168.56.40" 
+    nag.vm.provision :shell, path: "nagios/nagios.sh"
+    nag.vm.synced_folder "nagios/", "/nagios"
+
+    nag.vm.provider :virtualbox do |v|
+      v.name = "nag"
+    end
+
+  end
+
+
+
+end

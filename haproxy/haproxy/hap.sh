@@ -8,6 +8,7 @@ sudo apt install haproxy -y
 echo "
 frontend www
     bind 192.168.56.30:80
+    bind 192.168.56.30:60000-65000
     default_backend webbers
 
 backend webbers
